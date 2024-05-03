@@ -1,4 +1,4 @@
-// ConsoleApplication5.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+
 //
 
 #include "pch.h"
@@ -74,10 +74,10 @@ int main()
  int x, y;
 
 
- cout << "Введите первую дробь: " << endl;
+ cout << ": " << endl;
  cin >> x >> y;
  drob d1(x, y);
- cout << "Введите вторую дробь: " << endl;
+ cout << ": " << endl;
  cin >> x >> y;
  drob d2(x, y);
 
