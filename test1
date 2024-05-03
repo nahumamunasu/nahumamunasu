@@ -1,0 +1,89 @@
+// ConsoleApplication5.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
+//
+
+#include "pch.h"
+#include "iostream"
+#include "math.h"
+using namespace std;
+
+class drob {
+ int x, y;
+public:drob(int X = 0, int Y = 1) {
+ x = X; y = Y;
+}
+    /*drob(drob &P);*/
+    void setX(int X) { x = X; }
+    void setY(int Y) { y = Y; }
+    int getX() const { return x; }
+    int getY() const { return y; }
+    /*void assign(drob &P) {
+  x = P.x;
+  y = P.y;
+    }*/
+    void print() {
+     cout << x << " / " << y;
+    }
+    drob reduce() {
+     for (int i = ((x > y) ? y : x); i > 1; i--) {
+      if (y % i == 0 && x % i == 0) {
+       x = x / i; y = y / i;
+      }
+     }
+     return *this;
+    }
+    drob operator *(const drob &a) {
+     return drob(x * a.x, y * a.y);
+    }
+
+    drob operator *(const drob &a) {
+     double f;
+     return drob(f * a.x, a.y);
+    }
+
+    drob operator *(double Val) {
+     return drob(x*Val, y);
+    }
+
+
+};
+
+//drob::drob() {
+// x = 0; y = 0;
+//}
+//
+//drob::drob(drob &P) {
+// assign(P);
+//}
+
+
+//drob operator *(const drob &a, const drob &b) {
+// return drob(a.getX()*b.getX(), a.getY()*b.getY());
+//}
+//
+//drob operator *(double Val, const drob &a) {
+// return drob(Val*a.getX(), a.getY());
+//}
+//
+//drob operator *(const drob &a, double Val) {
+// return drob(a.getX()*Val, a.getY());
+//}
+
+int main()
+{
+ setlocale(LC_ALL, "Rus");
+ int x, y;
+
+
+ cout << "Введите первую дробь: " << endl;
+ cin >> x >> y;
+ drob d1(x, y);
+ cout << "Введите вторую дробь: " << endl;
+ cin >> x >> y;
+ drob d2(x, y);
+
+ drob d3 = d1 * d2;
+ d3.reduce().print();
+
+ system("Pause");
+ return 0;
+}
